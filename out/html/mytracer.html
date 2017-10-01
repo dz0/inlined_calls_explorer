@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="mytracer.js"></script>
+<link rel="stylesheet" type="text/css" href="mytracer.css">
+
+
+
+<script>
+
+// uniquines of doc for state saving (in localstorage)....
+doc_id = "test_simple-B";      
+timestamp = "2017-10-01 23:54:42.851298";
+
+$(document).ready( init );
+
+</script>
+
+</head>
+
+<body>
+
+
+<input type="button" id="save-tree" value="Save expanded state (tree structure)" onclick="save_expanded_tree_state()" />
+<input type="button" id="load-tree" value="Load tree" onclick="load_expanded_tree_state()" />
+<br/>
+
+<input type="button" id="save-html" value="Save expanded state (full html)" onclick="save_expanded_html()" />
+<input type="button" id="load-html"  value="Load html" onclick="load_expanded_html()" />
+(saves more exact view (but is bound to timestamp)) 
+
+<h2>Trace:</h2>
+<div id="trace">
+    <div id="entering-call" class="code">
+
+
+
+    <!--tests-->
+
+    <!--
+        <span class="line">bla bla
+        </span>
+
+        <span class="line calee" id="lineID_mymodule_123">boo boo 
+        <span class="toggler" id="toggler_X">*</span> 
+        <span class="toggler" id="toggler_____main__-Z">*</span>
+        <span class="toggler" id="toggler_Y">*</span> 
+
+        <span class="inlined" id="inlined_____main__-Z"></span>
+        <span class="inlined" id="inlined_X"></span>
+        <span class="inlined" id="inlined_Y">.Y.</span>
+        </span>
+    -->
+
+    </div>
+</div>
+
+
+    <h2 onclick='$("#codes").toggle();' class="button">Codes</h2>
+<div id="codes" >
+
+    <h4>test_simple-B</h4>
+    <div id='code_test_simple-B' class='code'>
+    
+                        <div class="mini_controlls_panel">
+                            <span class="show-stack-path button" title="show call stack"> ⇶ </span> 
+                            <span class="toggle-code button" title="toggle code locally"> ↕ </span> 
+                            <span class="toggle-noncall-lines button" title="toggle non calling lines"> ⇢ </span> 
+                            <span class="toggle-watches button" title="toggle watches"> 🔍 </span> 
+                        </div>
+                        <div id='test_simple-B-18' class='line   func-header'>
+                
+                <span class="line-code" title='test_simple-B-18'><span class="k">def</span> <span class="nf">B</span><span class="p">():</span>      <span class="c1"># test_simple-B</span></span>  
+                 
+                 
+                
+                </div><div class='nested_function inlined' id='inlined_test_simple-B__locals__bb' style="margin-left: 9ch;"></div><div id='test_simple-B-20' class='line   '>
+                
+                <span class="line-code" title='test_simple-B-20'>             <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#WATCH_AFTER: b</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-B-21' class='line   '>
+                
+                <span class="line-code" title='test_simple-B-21'>             <span class="k">return</span> <span class="s2">&quot;test __qualname__&quot;</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-B-22' class='line   '>
+                
+                <span class="line-code" title='test_simple-B-22'></span>  
+                 
+                 
+                
+                </div><div id='test_simple-B-23' class='line visited caller '>
+                
+                <span class="line-code" title='test_simple-B-23'>         <span class="nb">print</span><span class="p">(</span> <span class="n">bb</span><span class="p">(),</span> <span class="n">bb</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="p">)</span></span>  
+                 
+                
+                            <span class='toggler button' id='toggler_test_simple-B__locals__bb' title='toggle inlined: test_simple-B.[locals].bb'
+                                onclick='smart_toggle(this)' >&#8597;</span>
+<span class='toggler recursive button closed' id='toggle_all_recursively_test_simple-B__locals__bb' title='expand/toggle all calls (recursively)'
+                                onclick='toggle_all_recursively(this)'>&#8597;&#8597;&#8597;</span> 
+
+<div class='inlined' id='inlined_test_simple-B__locals__bb' style="margin-left: 9ch;"></div> 
+                
+                </div><div id='test_simple-B-24' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-B-24'>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start B&quot;</span><span class="p">)</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-B-25' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-B-25'>         <span class="n">x</span> <span class="o">=</span> <span class="mi">42</span> <span class="c1">#WATCH_AFTER: x; x-10  </span></span>  
+                <span class='button watch-toggler' id='toggler_watches_test_simple-B-25' title='toggle watched expressions (before/after line execution)'
+                                onclick='toggle_watch(this)' >&#128269;</span> 
+                 
+                <div class='watches after' id='watches_after_test_simple-B-25' title='watches after: test_simple-B-25' style="margin-left: 9ch;"><table class="fixed_headers"><thead><tr><th>x</th><th> x-10</th></tr></thead><tbody><tr><td>42</td><td>32</td></tr></tbody></table></div>
+                </div><div id='test_simple-B-26' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-B-26'>         <span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="p">(</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-B-27' class='line visited caller '>
+                
+                <span class="line-code" title='test_simple-B-27'>           <span class="n">x</span><span class="o">=</span><span class="n">C</span><span class="p">()</span> <span class="p">,</span></span>  
+                 
+                
+                            <span class='toggler button' id='toggler_test_simple-C' title='toggle inlined: test_simple-C'
+                                onclick='smart_toggle(this)' >&#8597;</span>
+<span class='toggler recursive button closed' id='toggle_all_recursively_test_simple-C' title='expand/toggle all calls (recursively)'
+                                onclick='toggle_all_recursively(this)'>&#8597;&#8597;&#8597;</span> 
+
+<div class='inlined' id='inlined_test_simple-C' style="margin-left: 11ch;"></div> 
+                
+                </div><div id='test_simple-B-28' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-B-28'>           <span class="n">y</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-B-29' class='line visited caller '>
+                
+                <span class="line-code" title='test_simple-B-29'>            <span class="n">z</span><span class="o">=</span><span class="mi">2</span></span>  
+                 
+                
+                            <span class='toggler button' id='toggler_test_simple-A' title='toggle inlined: test_simple-A'
+                                onclick='smart_toggle(this)' >&#8597;</span>
+<span class='toggler recursive button closed' id='toggle_all_recursively_test_simple-A' title='expand/toggle all calls (recursively)'
+                                onclick='toggle_all_recursively(this)'>&#8597;&#8597;&#8597;</span> 
+
+<div class='inlined' id='inlined_test_simple-A' style="margin-left: 12ch;"></div> 
+                
+                </div><div id='test_simple-B-30' class='line   '>
+                
+                <span class="line-code" title='test_simple-B-30'>              </span>  
+                 
+                 
+                
+                </div><div id='test_simple-B-31' class='line   '>
+                
+                <span class="line-code" title='test_simple-B-31'>         <span class="p">)</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-B-32' class='line   '>
+                
+                <span class="line-code" title='test_simple-B-32'>         <span class="p">)</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-B-33' class='line   '>
+                
+                <span class="line-code" title='test_simple-B-33'>        </span>  
+                 
+                 
+                
+                </div><div id='test_simple-B-34' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-B-34'>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;end B&quot;</span><span class="p">)</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-B-35' class='line   '>
+                
+                <span class="line-code" title='test_simple-B-35'></span>  
+                 
+                 
+                
+                </div>
+    </div>
+        
+
+
+    <h4>test_simple-B.[locals].bb</h4>
+    <div id='code_test_simple-B__locals__bb' class='code'>
+    
+                        <div class="mini_controlls_panel">
+                            <span class="show-stack-path button" title="show call stack"> ⇶ </span> 
+                            <span class="toggle-code button" title="toggle code locally"> ↕ </span> 
+                            <span class="toggle-noncall-lines button" title="toggle non calling lines"> ⇢ </span> 
+                            <span class="toggle-watches button" title="toggle watches"> 🔍 </span> 
+                        </div>
+                        <div id='test_simple-bb-19' class='line   func-header'>
+                
+                <span class="line-code" title='test_simple-bb-19'><span class="k">def</span> <span class="nf">bb</span><span class="p">():</span>     <span class="c1"># test_simple-B.[locals].bb</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-bb-20' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-bb-20'>    <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#WATCH_AFTER: b</span></span>  
+                <span class='button watch-toggler' id='toggler_watches_test_simple-bb-20' title='toggle watched expressions (before/after line execution)'
+                                onclick='toggle_watch(this)' >&#128269;</span> 
+                 
+                <div class='watches after' id='watches_after_test_simple-bb-20' title='watches after: test_simple-bb-20' style="margin-left: 4ch;"><table class="fixed_headers"><thead><tr><th>b</th></tr></thead><tbody><tr><td>10</td></tr></tbody></table></div>
+                </div><div id='test_simple-bb-21' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-bb-21'>    <span class="k">return</span> <span class="s2">&quot;test __qualname__&quot;</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-bb-22' class='line   '>
+                
+                <span class="line-code" title='test_simple-bb-22'></span>  
+                 
+                 
+                
+                </div>
+    </div>
+        
+
+
+    <h4>test_simple-C</h4>
+    <div id='code_test_simple-C' class='code'>
+    
+                        <div class="mini_controlls_panel">
+                            <span class="show-stack-path button" title="show call stack"> ⇶ </span> 
+                            <span class="toggle-code button" title="toggle code locally"> ↕ </span> 
+                            <span class="toggle-noncall-lines button" title="toggle non calling lines"> ⇢ </span> 
+                            <span class="toggle-watches button" title="toggle watches"> 🔍 </span> 
+                        </div>
+                        <div id='test_simple-C-36' class='line   func-header'>
+                
+                <span class="line-code" title='test_simple-C-36'><span class="k">def</span> <span class="nf">C</span><span class="p">():</span>     <span class="c1"># test_simple-C</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-C-37' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-C-37'>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span></span>  
+                 
+                 
+                
+                </div><div class='nested_function inlined' id='inlined_test_simple-C__locals__generator_' style="margin-left: 9ch;"></div><div id='test_simple-C-39' class='line   '>
+                
+                <span class="line-code" title='test_simple-C-39'>             <span class="n">genexpr_</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-C-40' class='line   '>
+                
+                <span class="line-code" title='test_simple-C-40'>             <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">genexpr_</span><span class="p">:</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-C-41' class='line   '>
+                
+                <span class="line-code" title='test_simple-C-41'>                <span class="k">yield</span> <span class="n">a</span> <span class="c1">#WATCH: a; a*2</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-C-42' class='line   '>
+                
+                <span class="line-code" title='test_simple-C-42'></span>  
+                 
+                 
+                
+                </div><div id='test_simple-C-43' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-C-43'>         <span class="n">listcomp_</span> <span class="o">=</span> <span class="p">[</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">generator_</span><span class="p">()</span>  <span class="p">]</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-C-44' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-C-44'>         <span class="n">lambda_</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-C-45' class='line   '>
+                
+                <span class="line-code" title='test_simple-C-45'>         </span>  
+                 
+                 
+                
+                </div><div id='test_simple-C-46' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-C-46'>         <span class="n">mapped</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">lambda_</span><span class="p">,</span> <span class="n">listcomp_</span><span class="p">)</span> </span>  
+                 
+                 
+                
+                </div><div id='test_simple-C-47' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-C-47'>         <span class="nb">list</span><span class="p">(</span><span class="n">mapped</span><span class="p">)</span>  <span class="c1"># to activate lazy mapping</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-C-48' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-C-48'>         <span class="k">return</span> <span class="mi">2</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-C-49' class='line   '>
+                
+                <span class="line-code" title='test_simple-C-49'></span>  
+                 
+                 
+                
+                </div>
+    </div>
+        
+
+
+    <h4>test_simple-C.[locals].generator_</h4>
+    <div id='code_test_simple-C__locals__generator_' class='code'>
+    
+                        <div class="mini_controlls_panel">
+                            <span class="show-stack-path button" title="show call stack"> ⇶ </span> 
+                            <span class="toggle-code button" title="toggle code locally"> ↕ </span> 
+                            <span class="toggle-noncall-lines button" title="toggle non calling lines"> ⇢ </span> 
+                            <span class="toggle-watches button" title="toggle watches"> 🔍 </span> 
+                        </div>
+                        <div id='test_simple-generator_-38' class='line   func-header'>
+                
+                <span class="line-code" title='test_simple-generator_-38'><span class="k">def</span> <span class="nf">generator_</span><span class="p">():</span>     <span class="c1"># test_simple-C.[locals].generator_</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-generator_-39' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-generator_-39'>    <span class="n">genexpr_</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-generator_-40' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-generator_-40'>    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">genexpr_</span><span class="p">:</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-generator_-41' class='line visited  '>
+                <div class='watches before' id='watches_before_test_simple-generator_-41' title='watches before: test_simple-generator_-41' style="margin-left: 7ch;"><table class="fixed_headers"><thead><tr><th>a</th><th> a*2</th></tr></thead><tbody><tr><td>5</td><td>10</td></tr><tr><td>6</td><td>12</td></tr><tr><td>7</td><td>14</td></tr><tr><td>5</td><td>10</td></tr><tr><td>6</td><td>12</td></tr><tr><td>7</td><td>14</td></tr><tr><td>5</td><td>10</td></tr><tr><td>6</td><td>12</td></tr><tr><td>7</td><td>14</td></tr><tr><td>5</td><td>10</td></tr><tr><td>6</td><td>12</td></tr><tr><td>7</td><td>14</td></tr><tr><td>5</td><td>10</td></tr><tr><td>6</td><td>12</td></tr><tr><td>7</td><td>14</td></tr></tbody></table></div>
+                <span class="line-code" title='test_simple-generator_-41'>       <span class="k">yield</span> <span class="n">a</span> <span class="c1">#WATCH: a; a*2</span></span>  
+                <span class='button watch-toggler' id='toggler_watches_test_simple-generator_-41' title='toggle watched expressions (before/after line execution)'
+                                onclick='toggle_watch(this)' >&#128269;</span> 
+                 
+                
+                </div><div id='test_simple-generator_-42' class='line   '>
+                
+                <span class="line-code" title='test_simple-generator_-42'></span>  
+                 
+                 
+                
+                </div>
+    </div>
+        
+
+
+    <h4>test_simple-A</h4>
+    <div id='code_test_simple-A' class='code'>
+    
+                        <div class="mini_controlls_panel">
+                            <span class="show-stack-path button" title="show call stack"> ⇶ </span> 
+                            <span class="toggle-code button" title="toggle code locally"> ↕ </span> 
+                            <span class="toggle-noncall-lines button" title="toggle non calling lines"> ⇢ </span> 
+                            <span class="toggle-watches button" title="toggle watches"> 🔍 </span> 
+                        </div>
+                        <div id='test_simple-A-2' class='line   func-header'>
+                
+                <span class="line-code" title='test_simple-A-2'><span class="k">def</span> <span class="nf">A</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>      <span class="c1"># test_simple-A</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-A-3' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-A-3'>     <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-A-4' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-A-4'>     <span class="nb">print</span><span class="p">(</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-A-5' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-A-5'>       <span class="s2">&quot;A&quot;</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-A-6' class='line   '>
+                
+                <span class="line-code" title='test_simple-A-6'>       <span class="p">)</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-A-7' class='line visited  '>
+                <div class='watches before' id='watches_before_test_simple-A-7' title='watches before: test_simple-A-7' style="margin-left: 5ch;"><table class="fixed_headers"><thead><tr><th>a</th></tr></thead><tbody><tr><td>5</td></tr></tbody></table></div>
+                <span class="line-code" title='test_simple-A-7'>     <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>  <span class="c1">#WATCH: a</span></span>  
+                <span class='button watch-toggler' id='toggler_watches_test_simple-A-7' title='toggle watched expressions (before/after line execution)'
+                                onclick='toggle_watch(this)' >&#128269;</span> 
+                 
+                
+                </div><div id='test_simple-A-8' class='line   '>
+                
+                <span class="line-code" title='test_simple-A-8'>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a &gt; 10&quot;</span><span class="p">)</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-A-9' class='line   '>
+                
+                <span class="line-code" title='test_simple-A-9'>     <span class="k">else</span><span class="p">:</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-A-10' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-A-10'>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a &lt;= 10&quot;</span><span class="p">)</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-A-11' class='line   '>
+                
+                <span class="line-code" title='test_simple-A-11'>        </span>  
+                 
+                 
+                
+                </div><div id='test_simple-A-12' class='line visited caller '>
+                
+                <span class="line-code" title='test_simple-A-12'>     <span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>  <span class="c1">#WATCH_AFTER: c</span></span>  
+                <span class='button watch-toggler' id='toggler_watches_test_simple-A-12' title='toggle watched expressions (before/after line execution)'
+                                onclick='toggle_watch(this)' >&#128269;</span> 
+                
+                            <span class='toggler button' id='toggler_test_simple-C' title='toggle inlined: test_simple-C'
+                                onclick='smart_toggle(this)' >&#8597;</span>
+<span class='toggler recursive button closed' id='toggle_all_recursively_test_simple-C' title='expand/toggle all calls (recursively)'
+                                onclick='toggle_all_recursively(this)'>&#8597;&#8597;&#8597;</span> 
+
+<div class='inlined' id='inlined_test_simple-C' style="margin-left: 5ch;"></div> 
+                <div class='watches after' id='watches_after_test_simple-A-12' title='watches after: test_simple-A-12' style="margin-left: 5ch;"><table class="fixed_headers"><thead><tr><th>c</th></tr></thead><tbody><tr><td>2</td></tr></tbody></table></div>
+                </div><div id='test_simple-A-13' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-A-13'>     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-A-14' class='line visited caller '>
+                
+                <span class="line-code" title='test_simple-A-14'>         <span class="n">C</span><span class="p">()</span></span>  
+                 
+                
+                            <span class='toggler button' id='toggler_test_simple-C' title='toggle inlined: test_simple-C'
+                                onclick='smart_toggle(this)' >&#8597;</span>
+<span class='toggler recursive button closed' id='toggle_all_recursively_test_simple-C' title='expand/toggle all calls (recursively)'
+                                onclick='toggle_all_recursively(this)'>&#8597;&#8597;&#8597;</span> 
+
+<div class='inlined' id='inlined_test_simple-C' style="margin-left: 9ch;"></div> 
+                
+                </div><div id='test_simple-A-15' class='line visited  '>
+                
+                <span class="line-code" title='test_simple-A-15'>     <span class="k">return</span> <span class="n">a</span></span>  
+                 
+                 
+                
+                </div><div id='test_simple-A-16' class='line   '>
+                
+                <span class="line-code" title='test_simple-A-16'></span>  
+                 
+                 
+                
+                </div>
+    </div>
+        
+
+
+<!--tests-->
+<!--  
+<pre id="code_X">asdf</pre>
+<pre id="code_____main__-Z">code_____main__-Z</pre>
+-->
+
+</div>
+
+<!--for testing purposes-->
+<!--
+<h2>call_map:</h2>
+<pre>
+{{  call_map}}
+</pre>
+
+<h2>visited_lines:</h2>
+<pre>
+{{  visited_lines}}
+</pre>
+-->
+
+<div class="tooltip"> 
+<!-- https://stackoverflow.com/a/39362586/4217317 -->
+   
+</div>
+
+</body>
+</html>
+
+
+<style>
+.code .hll { background-color: #ffffcc }
+.code  { background: #f8f8f8; }
+.code .c { color: #408080; font-style: italic } /* Comment */
+.code .err { border: 1px solid #FF0000 } /* Error */
+.code .k { color: #008000; font-weight: bold } /* Keyword */
+.code .o { color: #666666 } /* Operator */
+.code .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.code .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.code .cp { color: #BC7A00 } /* Comment.Preproc */
+.code .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.code .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.code .cs { color: #408080; font-style: italic } /* Comment.Special */
+.code .gd { color: #A00000 } /* Generic.Deleted */
+.code .ge { font-style: italic } /* Generic.Emph */
+.code .gr { color: #FF0000 } /* Generic.Error */
+.code .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.code .gi { color: #00A000 } /* Generic.Inserted */
+.code .go { color: #888888 } /* Generic.Output */
+.code .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.code .gs { font-weight: bold } /* Generic.Strong */
+.code .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.code .gt { color: #0044DD } /* Generic.Traceback */
+.code .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.code .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.code .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.code .kp { color: #008000 } /* Keyword.Pseudo */
+.code .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.code .kt { color: #B00040 } /* Keyword.Type */
+.code .m { color: #666666 } /* Literal.Number */
+.code .s { color: #BA2121 } /* Literal.String */
+.code .na { color: #7D9029 } /* Name.Attribute */
+.code .nb { color: #008000 } /* Name.Builtin */
+.code .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.code .no { color: #880000 } /* Name.Constant */
+.code .nd { color: #AA22FF } /* Name.Decorator */
+.code .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.code .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.code .nf { color: #0000FF } /* Name.Function */
+.code .nl { color: #A0A000 } /* Name.Label */
+.code .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.code .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.code .nv { color: #19177C } /* Name.Variable */
+.code .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.code .w { color: #bbbbbb } /* Text.Whitespace */
+.code .mb { color: #666666 } /* Literal.Number.Bin */
+.code .mf { color: #666666 } /* Literal.Number.Float */
+.code .mh { color: #666666 } /* Literal.Number.Hex */
+.code .mi { color: #666666 } /* Literal.Number.Integer */
+.code .mo { color: #666666 } /* Literal.Number.Oct */
+.code .sa { color: #BA2121 } /* Literal.String.Affix */
+.code .sb { color: #BA2121 } /* Literal.String.Backtick */
+.code .sc { color: #BA2121 } /* Literal.String.Char */
+.code .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.code .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.code .s2 { color: #BA2121 } /* Literal.String.Double */
+.code .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.code .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.code .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.code .sx { color: #008000 } /* Literal.String.Other */
+.code .sr { color: #BB6688 } /* Literal.String.Regex */
+.code .s1 { color: #BA2121 } /* Literal.String.Single */
+.code .ss { color: #19177C } /* Literal.String.Symbol */
+.code .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.code .fm { color: #0000FF } /* Name.Function.Magic */
+.code .vc { color: #19177C } /* Name.Variable.Class */
+.code .vg { color: #19177C } /* Name.Variable.Global */
+.code .vi { color: #19177C } /* Name.Variable.Instance */
+.code .vm { color: #19177C } /* Name.Variable.Magic */
+.code .il { color: #666666 } /* Literal.Number.Integer.Long */
+.code  { background: #fff; }
+</style>

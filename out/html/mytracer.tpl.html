@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="mytracer.js"></script>
+<link rel="stylesheet" type="text/css" href="mytracer.css">
+
+
+
+<script>
+
+// uniquines of doc for state saving (in localstorage)....
+doc_id = "{{doc_id}}";      
+timestamp = "{{timestamp}}";
+
+$(document).ready( init );
+
+</script>
+
+</head>
+
+<body>
+
+
+<input type="button" id="save-tree" value="Save expanded state (tree structure)" onclick="save_expanded_tree_state()" />
+<input type="button" id="load-tree" value="Load tree" onclick="load_expanded_tree_state()" />
+<br/>
+
+<input type="button" id="save-html" value="Save expanded state (full html)" onclick="save_expanded_html()" />
+<input type="button" id="load-html"  value="Load html" onclick="load_expanded_html()" />
+(saves more exact view (but is bound to timestamp)) 
+
+<h2>Trace:</h2>
+<div id="trace">
+    <div id="entering-call" class="code">
+
+
+
+    <!--tests-->
+
+    <!--
+        <span class="line">bla bla
+        </span>
+
+        <span class="line calee" id="lineID_mymodule_123">boo boo 
+        <span class="toggler" id="toggler_X">*</span> 
+        <span class="toggler" id="toggler_____main__-Z">*</span>
+        <span class="toggler" id="toggler_Y">*</span> 
+
+        <span class="inlined" id="inlined_____main__-Z"></span>
+        <span class="inlined" id="inlined_X"></span>
+        <span class="inlined" id="inlined_Y">.Y.</span>
+        </span>
+    -->
+
+    </div>
+</div>
+
+
+    <h2 onclick='$("#codes").toggle();' class="button">Codes</h2>
+<div id="codes" >
+{{codes}}
+
+
+<!--tests-->
+<!--  
+<pre id="code_X">asdf</pre>
+<pre id="code_____main__-Z">code_____main__-Z</pre>
+-->
+
+</div>
+
+<!--for testing purposes-->
+<!--
+<h2>call_map:</h2>
+<pre>
+{{  call_map}}
+</pre>
+
+<h2>visited_lines:</h2>
+<pre>
+{{  visited_lines}}
+</pre>
+-->
+
+<div class="tooltip"> 
+<!-- https://stackoverflow.com/a/39362586/4217317 -->
+   
+</div>
+
+</body>
+</html>
