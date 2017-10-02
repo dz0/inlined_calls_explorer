@@ -190,9 +190,33 @@ def render_html(visited_lines, codes, call_map, watched_values, watched_values_a
 
 
     codes_html = '\n\n'.join([ code_tpl(id, code) for id, code in codes.items()] )
+    
+    import os
+    from .helpers import mypath
 
+    html = open(mypath('_4html/' + 'mytracer.tpl.html')).read()
+    def static_html_includes(html, mode='as_ref' or 'inline'):
+        
+        if mode == 'as_ref':
+            stuff = """
+            <script src="mytracer.js"></script>
+            <link rel="stylesheet" type="text/css" href="mytracer.css">
+            """
+            #TODO : force copying 'static' to output   path_rel_out_html
+            static_files = os.listdir(mypath('_4html/static'))
             
-    html = open(config.path_rel_out_html+'mytracer.tpl.html').read()
+            html = html.replace("{{static_includes}}", stuff )
+            
+        if mode == 'inline':
+            css = open(mypath('_4html/static/mytracer.css')).read()
+            css = "\n<style>\n%s\n</style>\n" % css
+            js = open(mypath('_4html/static/mytracer.js')).read()
+            js = "\n<script>\n%s\n</script>\n" % js
+
+            html = html.replace("{{static_includes}}", css+js)
+        return html
+        
+    html = static_html_includes(html, mode='inline')
     html = html.replace("{{codes}}", str(codes_html) )
     
     # html = html.replace("{{visited_lines}}", str(visited_lines) )  # FIXME: deprecated?

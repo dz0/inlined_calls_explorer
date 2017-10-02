@@ -31,7 +31,7 @@ class ConfigDefault(object):
     MAX_DEPTH = 30
     BUFFER_STDOUT = True
     MAX_TRACED_STEPS = None
-    path_rel_out_html = '../out/html/'
+    path_rel_out_html = '../out/' # TODO: use fix_path..
     out_html_file = 'mytracer.html'
     
     ############# HOOKS (for overriding) #############
@@ -44,7 +44,7 @@ class ConfigDefault(object):
         # if frame.f_code.co_name in ["<genexpr>", "<dictcomp>", "<setcomp>", "<listcomp>"]:  # FIXME: seems, sometimes wrong def is taken for listcomp or genexp -- if it is used inside of them, example: listcomp_ = [ x for x in generator_()  ] 
             return False
             
-        if moduleID(frame) in [  "__main__", "mytracer" ]:
+        if moduleID(frame) in [  "__main__", "tracer" ]:
             if frame.f_code.co_name in ['finish', 'do_trace'] \
             or func_qualname(frame) == "CallTracer.__exit__":
                 return False
@@ -544,9 +544,10 @@ def finish():
             if config.BUFFER_STDOUT:
                 sys.stdout = stdout  # return stdout
             
-            with open('out_inlined.py', 'w') as f:
-                f.write( output )
-                print( output )
+            print( output )
+            
+            # with open('out_inlined.py', 'w') as f: # deprecated
+                # f.write( output )
 
         except AttributeError as e:
             print( e )
@@ -559,13 +560,19 @@ def output_html():
     """output after finish"""
 
      
-    import render 
+    if __name__ == "__main__":
+        import render 
+        import helpers
+    else:
+        from . import render , helpers
+        
     # monkeypach inject some stuff
     render.SEP_4ID = SEP_4ID
     render.join_ids = join_ids
     render.nested_function_relative_range = nested_function_relative_range
     render.lineID_from_parts = lineID_from_parts
     render.config = config
+    config.path_rel_out_html = helpers.mypath( config.path_rel_out_html )
     
     html = render.render_html(visited_lines, codes, call_map, watched_values, watched_values_after_exec, get_nested_functions() )
     with open(config.path_rel_out_html + config.out_html_file, 'w') as f:

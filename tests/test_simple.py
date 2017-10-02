@@ -1,21 +1,20 @@
 """defines what code to trace 
 and what expressions in which lines or watch"""
-# import ..inlined_calls_explorer.main as mytracer
+# import ..inlined_calls_explorer.main as tracer
 import sys
 sys.path.append('..')
-sys.path.append('../inlined_calls_explorer')
-from inlined_calls_explorer import main as mytracer
-# from mytracer import moduleID, lineID, funcID, join_ids, ConfigDefault
+from inlined_calls_explorer import tracer
+# from tracer import moduleID, lineID, funcID, join_ids, ConfigDefault
 
 
-class ConfigCustom(mytracer.ConfigDefault):
+class ConfigCustom(tracer.ConfigDefault):
     out_html_file = 'mytracer_simple.html' # output file
     
     @classmethod
     def decide_to_trace_call(cls, frame):
         """ decides if call is needed to be traced """
 
-        module = mytracer.moduleID(frame)
+        module = tracer.moduleID(frame)
         if module and module.startswith('test_mytracer'):
            return True 
            
@@ -43,15 +42,15 @@ class ConfigCustom(mytracer.ConfigDefault):
 
     @classmethod
     def other_cases(cls, frame, event, arg ):
-        print( "#DBG ignoring", event, mytracer.lineID(frame) )
+        print( "#DBG ignoring", event, tracer.lineID(frame) )
 
 
-mytracer.config = ConfigCustom  # Override/monkey patch config/hooks
+tracer.config = ConfigCustom  # Override/monkey patch config/hooks
 
 import code_simple
 
-with mytracer.CallTracer():
+with tracer.CallTracer():
     code_simple.B()
     
 # def test_simple():    test_mytracer_simple.B()   # wrap
-# mytracer.do_trace( test_simple )
+# tracer.do_trace( test_simple )

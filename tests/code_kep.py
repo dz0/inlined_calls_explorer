@@ -1,3 +1,5 @@
+import sys
+sys.path.append('/home/jurgis/dev/Freelancer/mini-kep/src')
 # data  fragments from interim/2017/05/tab.csv
 
 csv = """
@@ -31,6 +33,7 @@ csv = """
 """
 
 import pandas as pd
+
 
 from csv2df.specification import Definition, Specification, SPEC
 from csv2df.reader import Reader, open_csv
