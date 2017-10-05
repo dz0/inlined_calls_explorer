@@ -6,8 +6,8 @@ sys.path.append('..')
 from inlined_calls_explorer import tracer
 
 class ConfigKep(tracer.ConfigDefault):
-    out_html_file = 'mytracer_kep.html'
-    # path_rel_out_html = ...
+    out_html_file = '_out/calls_explorer_kep.html'
+    rendering_includes_mode = 'as_ref' or 'as_ref_local_copy' or 'inline' 
     # MAX_TRACED_STEPS = 2000
     @classmethod
     def decide_to_trace_call(cls, frame):

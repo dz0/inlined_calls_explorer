@@ -192,22 +192,38 @@ def render_html(visited_lines, codes, call_map, watched_values, watched_values_a
     codes_html = '\n\n'.join([ code_tpl(id, code) for id, code in codes.items()] )
     
     import os
-    from .helpers import mypath
-
+    try:
+        from .helpers import mypath
+    except ImportError:
+        from helpers import mypath
+         
     html = open(mypath('_4html/' + 'mytracer.tpl.html')).read()
     def static_html_includes(html, mode='as_ref' or 'inline'):
         
-        if mode == 'as_ref':
+        dest_dir = os.path.dirname(os.path.abspath(  config.out_html_file ))
+        if mode in ['as_ref',  'as_ref_local_copy']:
             stuff = """
-            <script src="mytracer.js"></script>
-            <link rel="stylesheet" type="text/css" href="mytracer.css">
+            <script src="static/mytracer.js"></script>
+            <link rel="stylesheet" type="text/css" href="static/mytracer.css">
             """
-            #TODO : force copying 'static' to output   path_rel_out_html
-            static_files = os.listdir(mypath('_4html/static'))
+
+            src_dir = mypath('_4html/static')
             
+            if mode == 'as_ref':
+                # stuff = stuff.replace('"static/', '"%s/'%src_dir/)
+                stuff = stuff.replace('static',  src_dir)
+                
+            if mode == 'as_ref_local_copy':
+                dest_dir = os.path.join( dest_dir, 'static')
+                import shutil 
+                print("DBG overwriting:\n src_dir:", src_dir, "\n dest_dir:", dest_dir )
+                shutil.rmtree( dest_dir, ignore_errors=True)
+                shutil.copytree( src_dir,  dest_dir )
+                
             html = html.replace("{{static_includes}}", stuff )
             
         if mode == 'inline':
+            os.makedirs( dest_dir, exist_ok=True )
             css = open(mypath('_4html/static/mytracer.css')).read()
             css = "\n<style>\n%s\n</style>\n" % css
             js = open(mypath('_4html/static/mytracer.js')).read()
@@ -216,7 +232,9 @@ def render_html(visited_lines, codes, call_map, watched_values, watched_values_a
             html = html.replace("{{static_includes}}", css+js)
         return html
         
-    html = static_html_includes(html, mode='inline')
+    # html = static_html_includes(html, mode='inline')
+    # html = static_html_includes(html, mode='as_ref_local_copy')
+    html = static_html_includes(html, mode=config.rendering_includes_mode)
     html = html.replace("{{codes}}", str(codes_html) )
     
     # html = html.replace("{{visited_lines}}", str(visited_lines) )  # FIXME: deprecated?

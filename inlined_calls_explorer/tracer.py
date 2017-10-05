@@ -31,8 +31,13 @@ class ConfigDefault(object):
     MAX_DEPTH = 30
     BUFFER_STDOUT = True
     MAX_TRACED_STEPS = None
-    path_rel_out_html = '../out/' # TODO: use fix_path..
-    out_html_file = 'mytracer.html'
+    out_html_file = 'output/calls_explorer.html'  
+    rendering_includes_mode = 'as_ref' or 'as_ref_local_copy' or 'inline'  
+    """
+    as_ref - takes js/css frome  the original _4html/static dir (best for dev/debugging);  
+    as_ref_local_copy - copies/owerwrites  'static' dir to dest folder and takes js/css from it;
+    inline - copies js/css directly to html file;  
+    """
     
     ############# HOOKS (for overriding) #############
     @classmethod
@@ -172,6 +177,7 @@ def get_file_pySource(path):
 
 def log(*args, **vars):
     print(*args, **vars)
+    pass
     
 def log_line(frame, extra=""):
     lineno = frame.f_lineno
@@ -572,10 +578,9 @@ def output_html():
     render.nested_function_relative_range = nested_function_relative_range
     render.lineID_from_parts = lineID_from_parts
     render.config = config
-    config.path_rel_out_html = helpers.mypath( config.path_rel_out_html )
     
     html = render.render_html(visited_lines, codes, call_map, watched_values, watched_values_after_exec, get_nested_functions() )
-    with open(config.path_rel_out_html + config.out_html_file, 'w') as f:
+    with open( config.out_html_file, 'w') as f:
             f.write( html )
 
 

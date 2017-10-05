@@ -8,7 +8,8 @@ from inlined_calls_explorer import tracer
 
 
 class ConfigCustom(tracer.ConfigDefault):
-    out_html_file = 'mytracer_simple.html' # output file
+    out_html_file = '_out/calls_explorer_simple.html' # output file
+    rendering_includes_mode = 'as_ref' or 'as_ref_local_copy' or 'inline'  
     
     @classmethod
     def decide_to_trace_call(cls, frame):

@@ -1,0 +1,62 @@
+
+#codes {display: none}
+.toggler.recursive { width:25px; text-align: center; }
+.line.visited {background: rgba(255,255,0,0.1); }
+.inlined { display:none; 
+           border:1px silver solid; 
+           }
+.code { font-family: monospace;  }
+.line-code { font-family: monospace;  white-space: pre;}
+
+
+.watches {  background: white ; 
+            border: 1px dotted green;
+            overflow-y: auto;
+            position: relative;
+            height: 80px;
+            display: none;
+            resize: both;
+            }
+
+.button{
+    display: inline-block;
+    /* background: #ff0;
+    padding: 8px 12px;
+     */
+    border: 1px solid silver;
+    border-radius: 4px;
+    
+    cursor: pointer;
+    
+}
+
+
+.watch-toggler { background-color: lightgreen }
+.toggler, .toggler.closed { background-color: yellow;  } 
+.toggler.opened { background-color: transparent;  } 
+
+.mini_controlls_panel { float: right }
+
+
+/************* Tooltip  ************/
+/* https://stackoverflow.com/a/39362586/4217317  */
+.tooltip {
+    position:absolute;
+    float:right;
+    display:none;
+    z-index:1000;
+    border: 1px solid #AB4141;
+    background-color: white;
+    white-space: nowrap;
+/*
+    width:350px;
+    background-color:#CB5757;
+    color:white;
+    padding:15px 20px;
+    box-shadow: 0px 3px 2px #8D8D8D;
+    border-radius: 6px;
+*/
+}
+
+/************* table for watches  ************/
+/* https://stackoverflow.com/a/25902860/4217317 */
