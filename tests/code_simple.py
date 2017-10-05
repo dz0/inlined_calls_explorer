@@ -12,24 +12,37 @@ if True:
         c = C()  #WATCH_AFTER: c
         for x in range(3):
             C()
+        
+        # D()
         return a
     
 
 def B(): 
-         def bb():
-             b = 10 #WATCH_AFTER: b
-             return "test __qualname__"
-
-         print( bb(), bb.__qualname__ )
          print("start B")
+         
          x = 42 #WATCH_AFTER: x; x-10  
-         u = (A(
+
+         def bb():
+             b = 10 #WATCH: b
+             return "test __qualname__"
+            
+         print( bb(), bb.__qualname__ )
+         bqn = bb() #WATCH_AFTER: bqn
+
+         # D()
+         # D()
+
+         A()
+         A()
+         
+         z= A(4, D(),      3)
+         u = A(
            x=C() ,
            y=3,
             z=2
               
          )
-         )
+         
         
          print("end B")
 
@@ -47,5 +60,13 @@ def C():
          list(mapped)  # to activate lazy mapping
          return 2
 
+def D():
+    def dd():
+        print("dd")
+    # print("D")
+    dd()
+    return "D"
+
 if __name__ == "__main__":
-    B()
+    # B()
+    import test_simple

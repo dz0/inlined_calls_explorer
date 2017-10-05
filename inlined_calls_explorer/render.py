@@ -75,7 +75,7 @@ def render_html(visited_lines, codes, call_map, watched_values, watched_values_a
         return container_before, container_after, toggler
 
         
-    def line_tpl(line, line_id, is_func_header=False):
+    def line_tpl(line, line_id, is_func_header=False, nested_func_html=""):
         line_id_jq = jqueryfy(line_id)
         visited = "visited" if line_id in visited_lines  else ""
         caller = "caller" if line_id in call_map  else ""
@@ -90,6 +90,7 @@ def render_html(visited_lines, codes, call_map, watched_values, watched_values_a
                 {watches_toggler} 
                 {inlines} 
                 {watches_after}
+                {nested_func_html}
                 </div>"""
         
     def code_tpl(id, code):
@@ -155,7 +156,7 @@ def render_html(visited_lines, codes, call_map, watched_values, watched_values_a
                             is_func_header=  nr<=header_nr ) 
                             for nr, x in enumerate(lines) ]
         
-        def nested_functions_replace_with_refs():
+        def nested_functions_replace_with_refs(lines):
             # TODO: could run twice -- to empty lines before syntax highlight, and then to replace with ref
             parent_id = id
             for child_id in nested_functions[id]:
@@ -174,9 +175,9 @@ def render_html(visited_lines, codes, call_map, watched_values, watched_values_a
                 # nested_inlined = f"""<div class='nested_function'>{inlined}</div>""" 
                 nested_inlined = inlined.replace("class='", "class='nested_function ") # FIXME: bug-prone -- injection shoud be more visible
                 # lines[start] =  nested_inlined
-                html_lines[start] =  nested_inlined
+                lines[start] =  line_tpl("", child_id, is_func_header=True, nested_func_html=nested_inlined )
                             
-        nested_functions_replace_with_refs()  # TODO: get inlined out of code-line span -- make it sibling..
+        nested_functions_replace_with_refs(html_lines)  # TODO: get inlined out of code-line span -- make it sibling..
 
 
         html_code = mini_controlls_panel + ''.join( html_lines )

@@ -20,7 +20,7 @@
 
 // uniquines of doc for state saving (in localstorage)....
 doc_id = "code_simple-B";      
-timestamp = "2017-10-05 10:45:07.975961";
+timestamp = "2017-10-05 11:56:24.693756";
 
 $(document).ready( init );
 
@@ -78,33 +78,59 @@ $(document).ready( init );
                             <span class="toggle-noncall-lines button" title="toggle non calling lines"> ⇢ </span> 
                             <span class="toggle-watches button" title="toggle watches"> 🔍 </span> 
                         </div>
-                        <div id='code_simple-B-18' class='line   func-header'>
+                        <div id='code_simple-B-20' class='line   func-header'>
                 
-                <span class="line-code" title='code_simple-B-18'><span class="k">def</span> <span class="nf">B</span><span class="p">():</span>      <span class="c1"># code_simple-B</span></span>  
-                 
-                 
-                
-                </div><div class='nested_function inlined' id='inlined_code_simple-B__locals__bb' style="margin-left: 9ch;"></div><div id='code_simple-B-20' class='line   '>
-                
-                <span class="line-code" title='code_simple-B-20'>             <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#WATCH_AFTER: b</span></span>  
+                <span class="line-code" title='code_simple-B-20'><span class="k">def</span> <span class="nf">B</span><span class="p">():</span>      <span class="c1"># code_simple-B</span></span>  
                  
                  
                 
-                </div><div id='code_simple-B-21' class='line   '>
                 
-                <span class="line-code" title='code_simple-B-21'>             <span class="k">return</span> <span class="s2">&quot;test __qualname__&quot;</span></span>  
+                </div><div id='code_simple-B-21' class='line visited  '>
+                
+                <span class="line-code" title='code_simple-B-21'>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start B&quot;</span><span class="p">)</span></span>  
                  
                  
+                
                 
                 </div><div id='code_simple-B-22' class='line   '>
                 
-                <span class="line-code" title='code_simple-B-22'></span>  
+                <span class="line-code" title='code_simple-B-22'>         </span>  
                  
                  
                 
-                </div><div id='code_simple-B-23' class='line visited caller '>
                 
-                <span class="line-code" title='code_simple-B-23'>         <span class="nb">print</span><span class="p">(</span> <span class="n">bb</span><span class="p">(),</span> <span class="n">bb</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="p">)</span></span>  
+                </div><div id='code_simple-B-23' class='line visited  '>
+                
+                <span class="line-code" title='code_simple-B-23'>         <span class="n">x</span> <span class="o">=</span> <span class="mi">42</span> <span class="c1">#WATCH_AFTER: x; x-10  </span></span>  
+                <span class='button watch-toggler' id='toggler_watches_code_simple-B-23' title='toggle watched expressions (before/after line execution)'
+                                onclick='toggle_watch(this)' >&#128269;</span> 
+                 
+                <div class='watches after' id='watches_after_code_simple-B-23' title='watches after: code_simple-B-23' style="margin-left: 9ch;"><table class="fixed_headers"><thead><tr><th>x</th><th> x-10</th></tr></thead><tbody><tr><td>42</td><td>32</td></tr></tbody></table></div>
+                
+                </div><div id='code_simple-B-24' class='line   '>
+                
+                <span class="line-code" title='code_simple-B-24'></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-B__locals__bb' class='line   func-header'>
+                
+                <span class="line-code" title='code_simple-B.[locals].bb'></span>  
+                 
+                 
+                
+                <div class='nested_function inlined' id='inlined_code_simple-B__locals__bb' style="margin-left: 9ch;"></div>
+                </div><div id='code_simple-B-28' class='line   '>
+                
+                <span class="line-code" title='code_simple-B-28'>            </span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-B-29' class='line visited caller '>
+                
+                <span class="line-code" title='code_simple-B-29'>         <span class="nb">print</span><span class="p">(</span> <span class="n">bb</span><span class="p">(),</span> <span class="n">bb</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="p">)</span></span>  
                  
                 
                             <span class='toggler button' id='toggler_code_simple-B__locals__bb' title='toggle inlined: code_simple-B.[locals].bb'
@@ -114,84 +140,152 @@ $(document).ready( init );
 
 <div class='inlined' id='inlined_code_simple-B__locals__bb' style="margin-left: 9ch;"></div> 
                 
-                </div><div id='code_simple-B-24' class='line visited  '>
                 
-                <span class="line-code" title='code_simple-B-24'>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start B&quot;</span><span class="p">)</span></span>  
-                 
-                 
+                </div><div id='code_simple-B-30' class='line visited caller '>
                 
-                </div><div id='code_simple-B-25' class='line visited  '>
-                
-                <span class="line-code" title='code_simple-B-25'>         <span class="n">x</span> <span class="o">=</span> <span class="mi">42</span> <span class="c1">#WATCH_AFTER: x; x-10  </span></span>  
-                <span class='button watch-toggler' id='toggler_watches_code_simple-B-25' title='toggle watched expressions (before/after line execution)'
+                <span class="line-code" title='code_simple-B-30'>         <span class="n">bqn</span> <span class="o">=</span> <span class="n">bb</span><span class="p">()</span> <span class="c1">#WATCH_AFTER: bqn</span></span>  
+                <span class='button watch-toggler' id='toggler_watches_code_simple-B-30' title='toggle watched expressions (before/after line execution)'
                                 onclick='toggle_watch(this)' >&#128269;</span> 
-                 
-                <div class='watches after' id='watches_after_code_simple-B-25' title='watches after: code_simple-B-25' style="margin-left: 9ch;"><table class="fixed_headers"><thead><tr><th>x</th><th> x-10</th></tr></thead><tbody><tr><td>42</td><td>32</td></tr></tbody></table></div>
-                </div><div id='code_simple-B-26' class='line visited  '>
                 
-                <span class="line-code" title='code_simple-B-26'>         <span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="p">(</span></span>  
-                 
-                 
-                
-                </div><div id='code_simple-B-27' class='line visited caller '>
-                
-                <span class="line-code" title='code_simple-B-27'>           <span class="n">x</span><span class="o">=</span><span class="n">C</span><span class="p">()</span> <span class="p">,</span></span>  
-                 
-                
-                            <span class='toggler button' id='toggler_code_simple-C' title='toggle inlined: code_simple-C'
+                            <span class='toggler button' id='toggler_code_simple-B__locals__bb' title='toggle inlined: code_simple-B.[locals].bb'
                                 onclick='smart_toggle(this)' >&#8597;</span>
-<span class='toggler recursive button closed' id='toggle_all_recursively_code_simple-C' title='expand/toggle all calls (recursively)'
+<span class='toggler recursive button closed' id='toggle_all_recursively_code_simple-B__locals__bb' title='expand/toggle all calls (recursively)'
                                 onclick='toggle_all_recursively(this)'>&#8597;&#8597;&#8597;</span> 
 
-<div class='inlined' id='inlined_code_simple-C' style="margin-left: 11ch;"></div> 
-                
-                </div><div id='code_simple-B-28' class='line   '>
-                
-                <span class="line-code" title='code_simple-B-28'>           <span class="n">y</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span></span>  
-                 
-                 
-                
-                </div><div id='code_simple-B-29' class='line   '>
-                
-                <span class="line-code" title='code_simple-B-29'>            <span class="n">z</span><span class="o">=</span><span class="mi">2</span></span>  
-                 
-                 
-                
-                </div><div id='code_simple-B-30' class='line   '>
-                
-                <span class="line-code" title='code_simple-B-30'>              </span>  
-                 
-                 
+<div class='inlined' id='inlined_code_simple-B__locals__bb' style="margin-left: 9ch;"></div> 
+                <div class='watches after' id='watches_after_code_simple-B-30' title='watches after: code_simple-B-30' style="margin-left: 9ch;"><table class="fixed_headers"><thead><tr><th>bqn</th></tr></thead><tbody><tr><td>test __qualname__</td></tr></tbody></table></div>
                 
                 </div><div id='code_simple-B-31' class='line   '>
                 
-                <span class="line-code" title='code_simple-B-31'>         <span class="p">)</span></span>  
+                <span class="line-code" title='code_simple-B-31'></span>  
                  
                  
+                
                 
                 </div><div id='code_simple-B-32' class='line   '>
                 
-                <span class="line-code" title='code_simple-B-32'>         <span class="p">)</span></span>  
+                <span class="line-code" title='code_simple-B-32'>         <span class="c1"># D()</span></span>  
                  
                  
+                
                 
                 </div><div id='code_simple-B-33' class='line   '>
                 
-                <span class="line-code" title='code_simple-B-33'>        </span>  
+                <span class="line-code" title='code_simple-B-33'>         <span class="c1"># D()</span></span>  
                  
                  
+                
                 
                 </div><div id='code_simple-B-34' class='line   '>
                 
-                <span class="line-code" title='code_simple-B-34'>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;end B&quot;</span><span class="p">)</span></span>  
+                <span class="line-code" title='code_simple-B-34'></span>  
                  
                  
                 
-                </div><div id='code_simple-B-35' class='line   '>
                 
-                <span class="line-code" title='code_simple-B-35'></span>  
+                </div><div id='code_simple-B-35' class='line visited caller '>
+                
+                <span class="line-code" title='code_simple-B-35'>         <span class="n">A</span><span class="p">()</span></span>  
+                 
+                
+                            <span class='toggler button' id='toggler_code_simple-A' title='toggle inlined: code_simple-A'
+                                onclick='smart_toggle(this)' >&#8597;</span>
+<span class='toggler recursive button closed' id='toggle_all_recursively_code_simple-A' title='expand/toggle all calls (recursively)'
+                                onclick='toggle_all_recursively(this)'>&#8597;&#8597;&#8597;</span> 
+
+<div class='inlined' id='inlined_code_simple-A' style="margin-left: 9ch;"></div> 
+                
+                
+                </div><div id='code_simple-B-36' class='line   '>
+                
+                <span class="line-code" title='code_simple-B-36'>         <span class="n">A</span><span class="p">()</span></span>  
                  
                  
+                
+                
+                </div><div id='code_simple-B-37' class='line   '>
+                
+                <span class="line-code" title='code_simple-B-37'>         </span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-B-38' class='line   '>
+                
+                <span class="line-code" title='code_simple-B-38'>         <span class="n">z</span><span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">D</span><span class="p">(),</span>      <span class="mi">3</span><span class="p">)</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-B-39' class='line   '>
+                
+                <span class="line-code" title='code_simple-B-39'>         <span class="n">u</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-B-40' class='line   '>
+                
+                <span class="line-code" title='code_simple-B-40'>           <span class="n">x</span><span class="o">=</span><span class="n">C</span><span class="p">()</span> <span class="p">,</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-B-41' class='line   '>
+                
+                <span class="line-code" title='code_simple-B-41'>           <span class="n">y</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-B-42' class='line   '>
+                
+                <span class="line-code" title='code_simple-B-42'>            <span class="n">z</span><span class="o">=</span><span class="mi">2</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-B-43' class='line   '>
+                
+                <span class="line-code" title='code_simple-B-43'>              </span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-B-44' class='line   '>
+                
+                <span class="line-code" title='code_simple-B-44'>         <span class="p">)</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-B-45' class='line   '>
+                
+                <span class="line-code" title='code_simple-B-45'>         </span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-B-46' class='line   '>
+                
+                <span class="line-code" title='code_simple-B-46'>        </span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-B-47' class='line   '>
+                
+                <span class="line-code" title='code_simple-B-47'>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;end B&quot;</span><span class="p">)</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-B-48' class='line   '>
+                
+                <span class="line-code" title='code_simple-B-48'></span>  
+                 
+                 
+                
                 
                 </div>
     </div>
@@ -207,30 +301,176 @@ $(document).ready( init );
                             <span class="toggle-noncall-lines button" title="toggle non calling lines"> ⇢ </span> 
                             <span class="toggle-watches button" title="toggle watches"> 🔍 </span> 
                         </div>
-                        <div id='code_simple-bb-19' class='line   func-header'>
+                        <div id='code_simple-bb-25' class='line   func-header'>
                 
-                <span class="line-code" title='code_simple-bb-19'><span class="k">def</span> <span class="nf">bb</span><span class="p">():</span>     <span class="c1"># code_simple-B.[locals].bb</span></span>  
+                <span class="line-code" title='code_simple-bb-25'><span class="k">def</span> <span class="nf">bb</span><span class="p">():</span>     <span class="c1"># code_simple-B.[locals].bb</span></span>  
                  
                  
                 
-                </div><div id='code_simple-bb-20' class='line visited  '>
                 
-                <span class="line-code" title='code_simple-bb-20'>    <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#WATCH_AFTER: b</span></span>  
-                <span class='button watch-toggler' id='toggler_watches_code_simple-bb-20' title='toggle watched expressions (before/after line execution)'
+                </div><div id='code_simple-bb-26' class='line visited  '>
+                <div class='watches before' id='watches_before_code_simple-bb-26' title='watches before: code_simple-bb-26' style="margin-left: 4ch;"><table class="fixed_headers"><thead><tr><th>b</th></tr></thead><tbody><tr><td>name &apos;b&apos; is not defined</td></tr><tr><td>name &apos;b&apos; is not defined</td></tr></tbody></table></div>
+                <span class="line-code" title='code_simple-bb-26'>    <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#WATCH: b</span></span>  
+                <span class='button watch-toggler' id='toggler_watches_code_simple-bb-26' title='toggle watched expressions (before/after line execution)'
                                 onclick='toggle_watch(this)' >&#128269;</span> 
                  
-                <div class='watches after' id='watches_after_code_simple-bb-20' title='watches after: code_simple-bb-20' style="margin-left: 4ch;"><table class="fixed_headers"><thead><tr><th>b</th></tr></thead><tbody><tr><td>10</td></tr></tbody></table></div>
-                </div><div id='code_simple-bb-21' class='line visited  '>
                 
-                <span class="line-code" title='code_simple-bb-21'>    <span class="k">return</span> <span class="s2">&quot;test __qualname__&quot;</span></span>  
+                
+                </div><div id='code_simple-bb-27' class='line visited  '>
+                
+                <span class="line-code" title='code_simple-bb-27'>    <span class="k">return</span> <span class="s2">&quot;test __qualname__&quot;</span></span>  
                  
                  
                 
-                </div><div id='code_simple-bb-22' class='line   '>
                 
-                <span class="line-code" title='code_simple-bb-22'></span>  
+                </div><div id='code_simple-bb-28' class='line   '>
+                
+                <span class="line-code" title='code_simple-bb-28'></span>  
                  
                  
+                
+                
+                </div>
+    </div>
+        
+
+
+    <h4>code_simple-A</h4>
+    <div id='code_code_simple-A' class='code'>
+    
+                        <div class="mini_controlls_panel">
+                            <span class="show-stack-path button" title="show call stack"> ⇶ </span> 
+                            <span class="toggle-code button" title="toggle code locally"> ↕ </span> 
+                            <span class="toggle-noncall-lines button" title="toggle non calling lines"> ⇢ </span> 
+                            <span class="toggle-watches button" title="toggle watches"> 🔍 </span> 
+                        </div>
+                        <div id='code_simple-A-2' class='line   func-header'>
+                
+                <span class="line-code" title='code_simple-A-2'><span class="k">def</span> <span class="nf">A</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>      <span class="c1"># code_simple-A</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-A-3' class='line visited  '>
+                
+                <span class="line-code" title='code_simple-A-3'>     <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span></span>  
+                <span class='button watch-toggler' id='toggler_watches_code_simple-A-3' title='toggle watched expressions (before/after line execution)'
+                                onclick='toggle_watch(this)' >&#128269;</span> 
+                 
+                <div class='watches after' id='watches_after_code_simple-A-3' title='watches after: code_simple-A-3' style="margin-left: 5ch;"><table class="fixed_headers"><thead><tr><th>a</th></tr></thead><tbody><tr><td>5</td></tr></tbody></table></div>
+                
+                </div><div id='code_simple-A-4' class='line visited  '>
+                
+                <span class="line-code" title='code_simple-A-4'>     <span class="nb">print</span><span class="p">(</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-A-5' class='line visited  '>
+                
+                <span class="line-code" title='code_simple-A-5'>       <span class="s2">&quot;A&quot;</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-A-6' class='line   '>
+                
+                <span class="line-code" title='code_simple-A-6'>       <span class="p">)</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-A-7' class='line visited  '>
+                <div class='watches before' id='watches_before_code_simple-A-7' title='watches before: code_simple-A-7' style="margin-left: 5ch;"><table class="fixed_headers"><thead><tr><th>a</th></tr></thead><tbody><tr><td>5</td></tr></tbody></table></div>
+                <span class="line-code" title='code_simple-A-7'>     <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>  <span class="c1">#WATCH: a</span></span>  
+                <span class='button watch-toggler' id='toggler_watches_code_simple-A-7' title='toggle watched expressions (before/after line execution)'
+                                onclick='toggle_watch(this)' >&#128269;</span> 
+                 
+                
+                
+                </div><div id='code_simple-A-8' class='line   '>
+                
+                <span class="line-code" title='code_simple-A-8'>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a &gt; 10&quot;</span><span class="p">)</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-A-9' class='line   '>
+                
+                <span class="line-code" title='code_simple-A-9'>     <span class="k">else</span><span class="p">:</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-A-10' class='line visited  '>
+                
+                <span class="line-code" title='code_simple-A-10'>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a &lt;= 10&quot;</span><span class="p">)</span></span>  
+                <span class='button watch-toggler' id='toggler_watches_code_simple-A-10' title='toggle watched expressions (before/after line execution)'
+                                onclick='toggle_watch(this)' >&#128269;</span> 
+                 
+                <div class='watches after' id='watches_after_code_simple-A-10' title='watches after: code_simple-A-10' style="margin-left: 9ch;"><table class="fixed_headers"><thead><tr><th>print(&quot;a &lt;</th></tr></thead><tbody><tr><td>EOL while scanning string literal (&lt;string&gt;, line 1)</td></tr></tbody></table></div>
+                
+                </div><div id='code_simple-A-11' class='line   '>
+                
+                <span class="line-code" title='code_simple-A-11'>        </span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-A-12' class='line visited caller '>
+                
+                <span class="line-code" title='code_simple-A-12'>     <span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>  <span class="c1">#WATCH_AFTER: c</span></span>  
+                 
+                
+                            <span class='toggler button' id='toggler_code_simple-C' title='toggle inlined: code_simple-C'
+                                onclick='smart_toggle(this)' >&#8597;</span>
+<span class='toggler recursive button closed' id='toggle_all_recursively_code_simple-C' title='expand/toggle all calls (recursively)'
+                                onclick='toggle_all_recursively(this)'>&#8597;&#8597;&#8597;</span> 
+
+<div class='inlined' id='inlined_code_simple-C' style="margin-left: 5ch;"></div> 
+                
+                
+                </div><div id='code_simple-A-13' class='line   '>
+                
+                <span class="line-code" title='code_simple-A-13'>     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-A-14' class='line   '>
+                
+                <span class="line-code" title='code_simple-A-14'>         <span class="n">C</span><span class="p">()</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-A-15' class='line   '>
+                
+                <span class="line-code" title='code_simple-A-15'>        </span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-A-16' class='line   '>
+                
+                <span class="line-code" title='code_simple-A-16'>     <span class="c1"># D()</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-A-17' class='line   '>
+                
+                <span class="line-code" title='code_simple-A-17'>     <span class="k">return</span> <span class="n">a</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-A-18' class='line   '>
+                
+                <span class="line-code" title='code_simple-A-18'></span>  
+                 
+                 
+                
                 
                 </div>
     </div>
@@ -246,45 +486,37 @@ $(document).ready( init );
                             <span class="toggle-noncall-lines button" title="toggle non calling lines"> ⇢ </span> 
                             <span class="toggle-watches button" title="toggle watches"> 🔍 </span> 
                         </div>
-                        <div id='code_simple-C-36' class='line   func-header'>
+                        <div id='code_simple-C-49' class='line   func-header'>
                 
-                <span class="line-code" title='code_simple-C-36'><span class="k">def</span> <span class="nf">C</span><span class="p">():</span>     <span class="c1"># code_simple-C</span></span>  
+                <span class="line-code" title='code_simple-C-49'><span class="k">def</span> <span class="nf">C</span><span class="p">():</span>     <span class="c1"># code_simple-C</span></span>  
                  
                  
                 
-                </div><div id='code_simple-C-37' class='line visited  '>
                 
-                <span class="line-code" title='code_simple-C-37'>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span></span>  
+                </div><div id='code_simple-C-50' class='line visited  '>
+                
+                <span class="line-code" title='code_simple-C-50'>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span></span>  
                  
                  
                 
-                </div><div class='nested_function inlined' id='inlined_code_simple-C__locals__generator_' style="margin-left: 9ch;"></div><div id='code_simple-C-39' class='line   '>
                 
-                <span class="line-code" title='code_simple-C-39'>             <span class="n">genexpr_</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span></span>  
+                </div><div id='code_simple-C__locals__generator_' class='line   func-header'>
+                
+                <span class="line-code" title='code_simple-C.[locals].generator_'></span>  
                  
                  
                 
-                </div><div id='code_simple-C-40' class='line   '>
+                <div class='nested_function inlined' id='inlined_code_simple-C__locals__generator_' style="margin-left: 9ch;"></div>
+                </div><div id='code_simple-C-55' class='line   '>
                 
-                <span class="line-code" title='code_simple-C-40'>             <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">genexpr_</span><span class="p">:</span></span>  
+                <span class="line-code" title='code_simple-C-55'></span>  
                  
                  
                 
-                </div><div id='code_simple-C-41' class='line   '>
                 
-                <span class="line-code" title='code_simple-C-41'>                <span class="k">yield</span> <span class="n">a</span> <span class="c1">#WATCH: a; a*2</span></span>  
-                 
-                 
+                </div><div id='code_simple-C-56' class='line visited caller '>
                 
-                </div><div id='code_simple-C-42' class='line   '>
-                
-                <span class="line-code" title='code_simple-C-42'></span>  
-                 
-                 
-                
-                </div><div id='code_simple-C-43' class='line visited caller '>
-                
-                <span class="line-code" title='code_simple-C-43'>         <span class="n">listcomp_</span> <span class="o">=</span> <span class="p">[</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">generator_</span><span class="p">()</span>  <span class="p">]</span></span>  
+                <span class="line-code" title='code_simple-C-56'>         <span class="n">listcomp_</span> <span class="o">=</span> <span class="p">[</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">generator_</span><span class="p">()</span>  <span class="p">]</span></span>  
                  
                 
                             <span class='toggler button' id='toggler_code_simple-C__locals___listcomp_' title='toggle inlined: code_simple-C.[locals].[listcomp]'
@@ -294,41 +526,48 @@ $(document).ready( init );
 
 <div class='inlined' id='inlined_code_simple-C__locals___listcomp_' style="margin-left: 9ch;"></div> 
                 
-                </div><div id='code_simple-C-44' class='line   '>
                 
-                <span class="line-code" title='code_simple-C-44'>         <span class="n">lambda_</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span></span>  
-                 
-                 
+                </div><div id='code_simple-C-57' class='line   '>
                 
-                </div><div id='code_simple-C-45' class='line   '>
-                
-                <span class="line-code" title='code_simple-C-45'>         </span>  
+                <span class="line-code" title='code_simple-C-57'>         <span class="n">lambda_</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span></span>  
                  
                  
                 
-                </div><div id='code_simple-C-46' class='line   '>
                 
-                <span class="line-code" title='code_simple-C-46'>         <span class="n">mapped</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">lambda_</span><span class="p">,</span> <span class="n">listcomp_</span><span class="p">)</span> </span>  
-                 
-                 
+                </div><div id='code_simple-C-58' class='line   '>
                 
-                </div><div id='code_simple-C-47' class='line   '>
-                
-                <span class="line-code" title='code_simple-C-47'>         <span class="nb">list</span><span class="p">(</span><span class="n">mapped</span><span class="p">)</span>  <span class="c1"># to activate lazy mapping</span></span>  
+                <span class="line-code" title='code_simple-C-58'>         </span>  
                  
                  
                 
-                </div><div id='code_simple-C-48' class='line   '>
                 
-                <span class="line-code" title='code_simple-C-48'>         <span class="k">return</span> <span class="mi">2</span></span>  
+                </div><div id='code_simple-C-59' class='line   '>
+                
+                <span class="line-code" title='code_simple-C-59'>         <span class="n">mapped</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">lambda_</span><span class="p">,</span> <span class="n">listcomp_</span><span class="p">)</span> </span>  
                  
                  
                 
-                </div><div id='code_simple-C-49' class='line   '>
                 
-                <span class="line-code" title='code_simple-C-49'></span>  
+                </div><div id='code_simple-C-60' class='line   '>
+                
+                <span class="line-code" title='code_simple-C-60'>         <span class="nb">list</span><span class="p">(</span><span class="n">mapped</span><span class="p">)</span>  <span class="c1"># to activate lazy mapping</span></span>  
                  
                  
+                
+                
+                </div><div id='code_simple-C-61' class='line   '>
+                
+                <span class="line-code" title='code_simple-C-61'>         <span class="k">return</span> <span class="mi">2</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-C-62' class='line   '>
+                
+                <span class="line-code" title='code_simple-C-62'></span>  
+                 
+                 
+                
                 
                 </div>
     </div>
@@ -344,35 +583,40 @@ $(document).ready( init );
                             <span class="toggle-noncall-lines button" title="toggle non calling lines"> ⇢ </span> 
                             <span class="toggle-watches button" title="toggle watches"> 🔍 </span> 
                         </div>
-                        <div id='code_simple-_listcomp_-38' class='line   func-header'>
+                        <div id='code_simple-_listcomp_-51' class='line   func-header'>
                 
-                <span class="line-code" title='code_simple-[listcomp]-38'><span class="k">def</span> <span class="nf">generator_</span><span class="p">():</span>     <span class="c1"># code_simple-C.[locals].[listcomp]</span></span>  
-                 
-                 
-                
-                </div><div id='code_simple-_listcomp_-39' class='line   '>
-                
-                <span class="line-code" title='code_simple-[listcomp]-39'>    <span class="n">genexpr_</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span></span>  
+                <span class="line-code" title='code_simple-[listcomp]-51'><span class="k">def</span> <span class="nf">generator_</span><span class="p">():</span>     <span class="c1"># code_simple-C.[locals].[listcomp]</span></span>  
                  
                  
                 
-                </div><div id='code_simple-_listcomp_-40' class='line   '>
                 
-                <span class="line-code" title='code_simple-[listcomp]-40'>    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">genexpr_</span><span class="p">:</span></span>  
-                 
-                 
+                </div><div id='code_simple-_listcomp_-52' class='line   '>
                 
-                </div><div id='code_simple-_listcomp_-41' class='line   '>
-                
-                <span class="line-code" title='code_simple-[listcomp]-41'>       <span class="k">yield</span> <span class="n">a</span> <span class="c1">#WATCH: a; a*2</span></span>  
+                <span class="line-code" title='code_simple-[listcomp]-52'>    <span class="n">genexpr_</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span></span>  
                  
                  
                 
-                </div><div id='code_simple-_listcomp_-42' class='line   '>
                 
-                <span class="line-code" title='code_simple-[listcomp]-42'></span>  
+                </div><div id='code_simple-_listcomp_-53' class='line   '>
+                
+                <span class="line-code" title='code_simple-[listcomp]-53'>    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">genexpr_</span><span class="p">:</span></span>  
                  
                  
+                
+                
+                </div><div id='code_simple-_listcomp_-54' class='line   '>
+                
+                <span class="line-code" title='code_simple-[listcomp]-54'>       <span class="k">yield</span> <span class="n">a</span> <span class="c1">#WATCH: a; a*2</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-_listcomp_-55' class='line   '>
+                
+                <span class="line-code" title='code_simple-[listcomp]-55'></span>  
+                 
+                 
+                
                 
                 </div>
     </div>
@@ -388,35 +632,40 @@ $(document).ready( init );
                             <span class="toggle-noncall-lines button" title="toggle non calling lines"> ⇢ </span> 
                             <span class="toggle-watches button" title="toggle watches"> 🔍 </span> 
                         </div>
-                        <div id='code_simple-generator_-38' class='line   func-header'>
+                        <div id='code_simple-generator_-51' class='line   func-header'>
                 
-                <span class="line-code" title='code_simple-generator_-38'><span class="k">def</span> <span class="nf">generator_</span><span class="p">():</span>     <span class="c1"># code_simple-C.[locals].generator_</span></span>  
-                 
-                 
-                
-                </div><div id='code_simple-generator_-39' class='line visited  '>
-                
-                <span class="line-code" title='code_simple-generator_-39'>    <span class="n">genexpr_</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span></span>  
+                <span class="line-code" title='code_simple-generator_-51'><span class="k">def</span> <span class="nf">generator_</span><span class="p">():</span>     <span class="c1"># code_simple-C.[locals].generator_</span></span>  
                  
                  
                 
-                </div><div id='code_simple-generator_-40' class='line visited  '>
                 
-                <span class="line-code" title='code_simple-generator_-40'>    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">genexpr_</span><span class="p">:</span></span>  
-                 
-                 
+                </div><div id='code_simple-generator_-52' class='line visited  '>
                 
-                </div><div id='code_simple-generator_-41' class='line   '>
-                
-                <span class="line-code" title='code_simple-generator_-41'>       <span class="k">yield</span> <span class="n">a</span> <span class="c1">#WATCH: a; a*2</span></span>  
+                <span class="line-code" title='code_simple-generator_-52'>    <span class="n">genexpr_</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span></span>  
                  
                  
                 
-                </div><div id='code_simple-generator_-42' class='line   '>
                 
-                <span class="line-code" title='code_simple-generator_-42'></span>  
+                </div><div id='code_simple-generator_-53' class='line visited  '>
+                
+                <span class="line-code" title='code_simple-generator_-53'>    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">genexpr_</span><span class="p">:</span></span>  
                  
                  
+                
+                
+                </div><div id='code_simple-generator_-54' class='line   '>
+                
+                <span class="line-code" title='code_simple-generator_-54'>       <span class="k">yield</span> <span class="n">a</span> <span class="c1">#WATCH: a; a*2</span></span>  
+                 
+                 
+                
+                
+                </div><div id='code_simple-generator_-55' class='line   '>
+                
+                <span class="line-code" title='code_simple-generator_-55'></span>  
+                 
+                 
+                
                 
                 </div>
     </div>

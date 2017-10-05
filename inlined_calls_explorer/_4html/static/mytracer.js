@@ -36,11 +36,11 @@ function toggle_by_first_el_state( $elems ){
     if ($elems.length){
         if( $elems.eq(0).is(":visible") ){
             // hide all
-            $elems.fadeOut('slow');
+            $elems.fadeOut(1000);
         }
         else{
             // hide all
-            $elems.fadeIn('slow');
+            $elems.fadeIn(1000);
         }
     }
 }
@@ -62,8 +62,13 @@ function init_4_new_expanded_stuff(){
     
     $(".toggle-code").off("click").on("click", function(event) { $(this).parent().siblings(".line").toggle(); });  // .not('.func-header') ?
     
-    $(".toggle-noncall-lines").off("click").on("click", function(event) { toggle_by_first_el_state ( $(this).parents('.code').first().find(".line ").not('.caller').not('.func-header') ); });
-    $(".toggle-watches").off("click").on("click", function(event) { toggle_by_first_el_state( $(this).parents('.code').first().find(".watches ") ); });
+    $(".toggle-noncall-lines").off("click").on("click", function(event) { toggle_by_first_el_state ( 
+                $(this).parents('.code').first().find(".line ").not('.caller').not('.func-header') 
+    ); });
+    
+    $(".toggle-watches").off("click").on("click", function(event) { toggle_by_first_el_state(
+         $(this).parents('.code').first().find(".watches ") 
+    ); });
     
     $(".toggler").off("mouseover").on("mouseover", 
         function(event) { style_inlined(this, "border-width", "3px");  });
